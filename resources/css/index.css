@@ -1,0 +1,61 @@
+@import '../../vendor/filament/filament/resources/css/theme.css';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.it-tabs-repeater{
+    @apply relative my-6 bg-white shadow-sm border border-slate-200 rounded-lg p-2 dark:bg-gray-800 dark:border-gray-600;
+
+    & .it-tabs-repeater-header{
+        @apply flex justify-between bg-slate-100 dark:bg-gray-700 dark:border-gray-700 px-4 py-2;
+
+        & .it-tabs{
+            @apply flex flex-wrap px-1.5 py-1.5 rounded-md bg-slate-300 dark:bg-gray-500 gap-2 items-center;
+
+            & .it-tabs-item{
+                @apply flex justify-between items-center gap-2 text-slate-600 dark:text-white hover:text-primary-700 hover:bg-slate-200 hover:rounded-md px-2;
+  
+                & .it-tabs-item-btn{
+                    @apply flex justify-between items-center px-0 py-2 mb-0 text-sm transition-all ease-in-out border-0 cursor-pointer bg-inherit gap-1;
+                }
+
+                & .it-tabs-clone-btn{
+                    & button{
+                        @apply text-fuchsia-500 hover:text-fuchsia-300;
+                    }
+                }
+                
+                & .it-tabs-reorder-btn{
+                    & button{
+                        @apply text-rose-500 hover:text-rose-300;
+                    }
+                }
+
+            }
+
+        }
+        & .it-tabs-add-btn{
+            @apply px-1.5 py-1.5 content-center;
+
+            & button{
+                @apply bg-white rounded-lg;
+            }
+        }
+    }
+
+    & .it-tabs-content{
+        @apply p-3;
+    }
+
+}
+
+.it-active{
+    @apply bg-white shadow-sm rounded-md hover:bg-white;
+
+    & .it-tabs-item-btn{
+        @apply text-primary-700 ;
+    }
+}
+
+.it-empty-state{
+    @apply bg-white dark:bg-gray-900 rounded-xl shadow-sm text-center content-center w-full h-20;
+}
