@@ -128,7 +128,7 @@
         {{-- Tab Bodies (Keep exactly as before) --}}
         <div class="it-tabs-content">
             @forelse ($containers as $uuid => $item)
-                <div x-show="isActive('{{ $uuid }}')" x-cloak wire:key="{{ $item->getLivewireKey() }}.tab-content" class="ring-1 ring-gray-950/5 dark:ring-white/10 rounded-lg p-6 bg-white dark:bg-gray-900 shadow-sm relative">
+                <div x-show="isActive('{{ $uuid }}')" x-cloak wire:key="{{ $item->getLivewireKey() }}.tab-content" class="it-tabs-content-item">
                     {{ $item }}
                 </div>
             @empty

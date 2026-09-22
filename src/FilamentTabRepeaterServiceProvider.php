@@ -40,7 +40,7 @@ class FilamentTabRepeaterServiceProvider extends PackageServiceProvider
     {
         // Asset Registration
         FilamentAsset::register([
-            Css::make('tab-repeater', __DIR__ . '/../resource/dist/css/tab-repeater.css'),
+            Css::make('tab-repeater', __DIR__ . '/../resources/dist/css/tab-repeater.css'),
         ], 'filament-tab-repeater');
 
     }

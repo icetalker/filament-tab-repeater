@@ -2,7 +2,7 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build:css": "npx @tailwindcss/cli -i resources/css/index.css -o resource/dist/css/tab-repeater.css --postcss --minify",
+        "build:css": "npx @tailwindcss/cli -i resources/css/index.css -o resources/dist/css/tab-repeater.css --postcss --minify",
         "build": "npm run build:css"
     },
     "devDependencies": {

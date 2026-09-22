@@ -1,12 +1,41 @@
-@import '../../vendor/filament/filament/resources/css/theme.css';
+/* @import '../../vendor/filament/filament/resources/css/theme.css';
+ */
+@import 'tailwindcss';
+
+@theme {
+    
+    --color-primary-50: var(--primary-50);
+    --color-primary-100: var(--primary-100);
+    --color-primary-200: var(--primary-200);
+    --color-primary-300: var(--primary-300);
+    --color-primary-400: var(--primary-400);
+    --color-primary-500: var(--primary-500);
+    --color-primary-600: var(--primary-600);
+    --color-primary-700: var(--primary-700);
+    --color-primary-800: var(--primary-800);
+    --color-primary-900: var(--primary-900);
+    --color-primary-950: var(--primary-950);
+
+    --color-custom-50: var(--color-50);
+    --color-custom-100: var(--color-100);
+    --color-custom-200: var(--color-200);
+    --color-custom-300: var(--color-300);
+    --color-custom-400: var(--color-400);
+    --color-custom-500: var(--color-500);
+    --color-custom-600: var(--color-600);
+    --color-custom-700: var(--color-700);
+    --color-custom-800: var(--color-800);
+    --color-custom-900: var(--color-900);
+    --color-custom-950: var(--color-950);
+}
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 .it-tabs-repeater{
-    @apply relative my-6 bg-white shadow-sm border border-slate-200 rounded-lg p-2 dark:bg-gray-800 dark:border-gray-600;
+    @apply relative my-6 bg-white shadow-sm border border-slate-200 rounded-lg p-2 dark:bg-gray-700 dark:border-gray-600;
 
     & .it-tabs-repeater-header{
-        @apply flex justify-between bg-slate-100 dark:bg-gray-700 dark:border-gray-700 px-4 py-2;
+        @apply flex justify-between bg-slate-100 dark:bg-gray-700 dark:border-gray-700 px-4 py-2 rounded-md;
 
         & .it-tabs{
             @apply flex flex-wrap px-1.5 py-1.5 rounded-md bg-slate-300 dark:bg-gray-500 gap-2 items-center;
@@ -44,6 +73,10 @@
 
     & .it-tabs-content{
         @apply p-3;
+        
+        & .it-tabs-content-item{
+            @apply ring-1 ring-gray-950/5 dark:ring-white/10 rounded-md p-6 bg-white dark:bg-gray-900 shadow-sm relative;
+        }
     }
 
 }
