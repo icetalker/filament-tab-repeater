@@ -15,7 +15,7 @@
 
         $label = $getLabel();
     @endphp
- 
+
     <div
         x-data="{
             state: $wire.$entangle('{{ $getStatePath() }}'),
@@ -37,8 +37,8 @@
                             this.activeTab = newKeys[0];
                         }
                     }
-                        
-                     
+
+
                 })
             },
 
@@ -49,7 +49,7 @@
     >
     <div class="it-tabs-repeater-header">
             @if (count($containers))
-            <nav 
+            <nav
                 class="it-tabs"
                 aria-label="Tabs"
                 x-sortable
@@ -57,7 +57,7 @@
                     let tab_items = Array.from($event.target.children)
                     let items =tab_items.map(el => el.getAttribute('x-sortable-item'))
                         .filter(Boolean);
-                    
+
                     $wire.mountAction('reorder', { items: items }, { schemaComponent: '{{ $getKey() }}' });
                 "
             >
@@ -71,7 +71,7 @@
                     <div x-bind:class="{
                             'it-tabs-item':true,
                             'it-active': isActive('{{ $uuid }}'),
-                        }" 
+                        }"
                         aria-label="Tabs"
                         wire:key="{{ $item->getLivewireKey() }}.item"
                         x-sortable-item="{{ $uuid }}"
@@ -105,7 +105,7 @@
                             {{ $reorderAction }}
                         </div>
                         @endif
-                        
+
                         @if($isDeletable && $deleteAction->isVisible())
                         <div class="it-tabs-delete-btn">
                             {{ $deleteAction(['item' => $uuid]) }}
@@ -128,7 +128,7 @@
         {{-- Tab Bodies (Keep exactly as before) --}}
         <div class="it-tabs-content">
             @forelse ($containers as $uuid => $item)
-                <div x-show="isActive('{{ $uuid }}')" x-cloak wire:key="{{ $item->getLivewireKey() }}.tab-content" class="it-tabs-content-item">
+                <div x-show="isActive('{{ $uuid }}')" x-cloak wire:key="{{ $item->getLivewireKey() }}.tab-content" class="it-tabs-content-item" style="box-shadow: none">
                     {{ $item }}
                 </div>
             @empty
@@ -137,6 +137,6 @@
                 </div>
             @endforelse
         </div>
-        
+
     </div>
 </x-dynamic-component>
