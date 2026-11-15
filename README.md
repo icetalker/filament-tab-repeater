@@ -118,24 +118,24 @@ TabRepeater::make('items')
 
 #### Customize CSS Style For Tab Content 
 
+To customize css styles for the tab content contianers, you may call `tabContentStyle()` method, and pass a css style string or a Closure to return css styles dynamically:
+
 ```php
 TabRepeater::make('social_links')
     ->schema([
         //...
     ])
-    ->tabStyle('box-shadow:none')
+    ->tabContentStyle('box-shadow:none')
     //or
-    ->tabStyle(function (array $state) {
+    ->tabContentStyle(function (array $state) {
         return match ($state['language_code'] ?? null) {
             'en' => 'background-color: red',
             'zh-CN' => 'background-color: blue;',
-            default => 'background-color:green',
+            default => 'background-color: green',
         };
     })
 
 ```
-
-You may d
 
 
 ## Use Case
