@@ -14,6 +14,7 @@
         $isReorderableWithDragAndDrop = $isReorderableWithDragAndDrop();
 
         $label = $getLabel();
+
     @endphp
  
     <div
@@ -128,7 +129,7 @@
         {{-- Tab Bodies (Keep exactly as before) --}}
         <div class="it-tabs-content">
             @forelse ($containers as $uuid => $item)
-                <div x-show="isActive('{{ $uuid }}')" x-cloak wire:key="{{ $item->getLivewireKey() }}.tab-content" class="it-tabs-content-item">
+                <div x-show="isActive('{{ $uuid }}')" x-cloak wire:key="{{ $item->getLivewireKey() }}.tab-content" class="it-tabs-content-item" @if($item->getParentComponent()->getTabContentStyle($uuid)) style="{{ $item->getParentComponent()->getTabContentStyle($uuid) }}" @endif>
                     {{ $item }}
                 </div>
             @empty

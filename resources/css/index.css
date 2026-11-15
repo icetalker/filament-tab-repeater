@@ -82,7 +82,7 @@
 }
 
 .it-active{
-    @apply bg-white shadow-sm rounded-md hover:bg-white;
+    @apply bg-white shadow-sm rounded-md;
 
     & .it-tabs-item-btn{
         @apply text-primary-700 ;

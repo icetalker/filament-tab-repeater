@@ -15,6 +15,8 @@ class TabRepeater extends Repeater
 
     protected string | Closure | null $itemIcon = null;
 
+    protected string | Closure | null $tabContentStyle = null;
+
     protected function setUp(): void
     {
         $this->columnSpanFull();
@@ -63,5 +65,25 @@ class TabRepeater extends Repeater
         return parent::getReorderAction()->icon(Heroicon::ArrowsRightLeft);
     }
 
+    public function tabContentStyle(string | Closure $tabContentStyle): static
+    {
+        $this->tabContentStyle = $tabContentStyle;
+
+        return $this;
+    }
+
+    public function getTabContentStyle(string $uuid){
+        if ($this->tabContentStyle === null) {
+            return null;
+        }
+
+        // We get the specific state for this item (e.g., to check a 'type' field)
+        $state = $this->getRawState()[$uuid] ?? [];
+
+        return $this->evaluate($this->tabContentStyle, [
+            'state' => $state,
+            'uuid' => $uuid,
+        ]);
+    }
 
 }

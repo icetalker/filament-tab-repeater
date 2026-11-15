@@ -1,5 +1,10 @@
 # Display Repeater as Tab
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/icetalker/filament-tab-repeater.svg?style=flat-square)](https://packagist.org/packages/icetalker/filament-tab-repeater)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/icetalker/filament-tab-repeater/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/icetalker/filament-tab-repeater/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/icetalker/filament-tab-repeater/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/icetalker/filament-tab-repeater/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/icetalker/filament-tab-repeater.svg?style=flat-square)](https://packagist.org/packages/icetalker/filament-tab-repeater)
+
 ![light](screenshots/screenshot-1.png)
 
 ![dark](screenshots/screenshot-2.png)
@@ -110,6 +115,28 @@ TabRepeater::make('items')
     ->reorderable(false) // Disable tab reordering
 
 ```
+
+#### Customize CSS Style For Tab Content 
+
+```php
+TabRepeater::make('social_links')
+    ->schema([
+        //...
+    ])
+    ->tabStyle('box-shadow:none')
+    //or
+    ->tabStyle(function (array $state) {
+        return match ($state['language_code'] ?? null) {
+            'en' => 'background-color: red',
+            'zh-CN' => 'background-color: blue;',
+            default => 'background-color:green',
+        };
+    })
+
+```
+
+You may d
+
 
 ## Use Case
 
